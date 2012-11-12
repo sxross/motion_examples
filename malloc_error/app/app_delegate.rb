@@ -52,8 +52,8 @@ class Debug
     
     ### It appears that RubyMotion does not support caller backtrace yet.
     
-    # NSLog("#{open_color}#{type} #{caller[1]}: #{message}#{close_color}") unless @@silent
-    NSLog("#{open_color}#{type} #{message}#{close_color}") unless @@silent
+    NSLog("#{open_color}#{type} #{caller[1]}: #{message}#{close_color}") unless @@silent
+    # NSLog("#{open_color}#{type} #{message}#{close_color}") unless @@silent
   end
   
   def self.info(msg)
@@ -72,6 +72,7 @@ end
 
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
+    Debug.info "this should tell me who called me"
     true
   end
 end

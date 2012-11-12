@@ -1,0 +1,2 @@
+gem 'bubble-wrap', :git => 'https://github.com/rubymotion/BubbleWrap.git'
+gem 'motion-cocoapods'
