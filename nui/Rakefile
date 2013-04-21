@@ -8,7 +8,11 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'nui'
   app.pods do
-    pod 'NUI'
+    pod 'NUI', '~> 0.2.7'
+  end
+
+  if app.development?
+    app.info_plist['nui_style_path'] = "#{Dir.pwd}/resources/my_theme.nss"
   end
 
   app.frameworks += ['CoreImage', 'QuartzCore']
