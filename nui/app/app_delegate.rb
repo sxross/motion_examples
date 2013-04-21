@@ -1,7 +1,12 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
+
     NUISettings.initWithStylesheet("my_theme")
+    if NSBundle.mainBundle.objectForInfoDictionaryKey('development')
+      NUISettings.setAutoUpdatePath NSBundle.mainBundle.objectForInfoDictionaryKey('nui_style_path')
+    end
     NUIAppearance.init
+
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
 
     tabbar = UITabBarController.alloc.init
@@ -26,7 +31,7 @@ end
 
 class ExampleTableViewController < UITableViewController
   @@cell_identifier = nil
-  
+
   # Sample data for our table. Don't blame me for the data.
   # I just grabbed it off the Web :)
   CELL_DATA = [
@@ -59,7 +64,7 @@ class ExampleTableViewController < UITableViewController
     cell.detailTextLabel.text = CELL_DATA[indexPath.row].last
     cell
   end
-  
+
   def cell_identifier
     @@cell_identifier ||= 'example_cell'
   end
