@@ -12,7 +12,6 @@ Motion::Project::App.setup do |app|
   end
 
   if app.development?
-    app.info_plist['development'] = true
     app.info_plist['nui_style_path'] = "#{Dir.pwd}/resources/my_theme.nss"
   end
 

@@ -1,8 +1,9 @@
 class AppDelegate
+
   def application(application, didFinishLaunchingWithOptions:launchOptions)
 
     NUISettings.initWithStylesheet("my_theme")
-    if NSBundle.mainBundle.objectForInfoDictionaryKey('development')
+    if App.development?
       NUISettings.setAutoUpdatePath NSBundle.mainBundle.objectForInfoDictionaryKey('nui_style_path')
     end
     NUIAppearance.init
